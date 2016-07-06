@@ -30,7 +30,6 @@ module Kitchen
         end
 
         def upload(locals, remote)
-          puts "Upload"
           Array(locals).each do |local|
             full_remote = File.join(remote, File.basename(local))
             options = {
