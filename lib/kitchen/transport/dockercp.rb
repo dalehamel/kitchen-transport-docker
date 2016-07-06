@@ -32,10 +32,6 @@ module Kitchen
         def upload(locals, remote)
           Array(locals).each do |local|
             full_remote = File.join(remote, File.basename(local))
-            options = {
-              recursive: File.directory?(local),
-              purge: File.basename(local) != 'cache',
-            }
             time = Benchmark.realtime do
               system("docker cp #{local} #{@container_name}:#{full_remote}")
             end
